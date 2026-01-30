@@ -1,0 +1,3 @@
+Some multi-line
+text content
+for the file.
