@@ -13,17 +13,14 @@ public class App {
 
         String filePath = "C:\\Users\\doesntexist\\workspace\\test.txt";
 
-        try {
-            BufferedReader reader = new BufferedReader(
+        try (BufferedReader reader = new BufferedReader(
                 new FileReader(filePath)
-            );
+            )) {
 
             String line;
             while(null != (line = reader.readLine())) {
                 System.out.println(line);
             }
-            
-            reader.close();
         } catch (FileNotFoundException e) {
             System.out.println("Could not locate file.");
         } catch (IOException e) {
