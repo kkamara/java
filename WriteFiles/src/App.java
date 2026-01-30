@@ -18,15 +18,12 @@ public class App {
                 for the file.
                 """;
 
-        try {
-            FileWriter writer = new FileWriter(
+        try (FileWriter writer = new FileWriter(
                 filePath
-            );
+            )) {
 
             writer.write(textContent);
             System.out.println("File has been written.");
-
-            writer.close();
         } catch (FileNotFoundException e) {
             System.out.println("Could not locate file location.");
         } catch (IOException e) {
